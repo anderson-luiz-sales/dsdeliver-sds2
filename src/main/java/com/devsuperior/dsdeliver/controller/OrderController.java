@@ -26,4 +26,9 @@ public class OrderController {
     public ResponseEntity<OrderDTO> insert(@RequestBody OrderDTO orderDTO) {
         return  new ResponseEntity<>(orderService.create(orderDTO), HttpStatus.CREATED);
     }
+
+    @PutMapping("/{id}/delivered")
+    public ResponseEntity<OrderDTO> setDelivered(@PathVariable Long id) {
+        return new ResponseEntity<>(orderService.setDelived(id), HttpStatus.OK);
+    }
 }
